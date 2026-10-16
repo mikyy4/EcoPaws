@@ -1,0 +1,113 @@
+/* ===== EcoPaws base: design tokens + components shared by the landing page, the app and the admin panel ===== */
+:root{
+  --bg:#F3F0E6; --bg2:#E6EFE4;
+  --ink:#23403A; --muted:#5E766F; --line:#DAE4D8;
+  --card:#FFFDF8;
+  --green:#3F8F76; --green-d:#2D7260; --mint:#DCEEE4;
+  --peach:#F2A082; --peach-d:#D9805F; --peach-soft:#FCE7DC;
+  --sun:#F3CF7E; --sun-soft:#FBF1D2; --sun-d:#9A7418;
+  --rose:#C9644F; --rose-soft:#F8E2DC;
+  --shadow:0 14px 34px -16px rgba(35,64,58,.35);
+  --radius:26px;
+  --font:"Nunito","Quicksand","Segoe UI Rounded","Segoe UI",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:var(--font); color:var(--ink); font-size:18px; line-height:1.5;
+  min-height:100vh; position:relative; overflow-x:hidden;
+  background:
+    radial-gradient(900px 500px at 105% -10%, #DCEBDD 0%, transparent 60%),
+    radial-gradient(800px 500px at -10% 110%, #FBE6D8 0%, transparent 60%),
+    var(--bg);
+}
+/* faint paw-print wallpaper */
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; opacity:.55;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='%233F8F76' fill-opacity='.07'%3E%3Cg transform='translate(24 28) rotate(-18) scale(.55)'%3E%3Cellipse cx='32' cy='42' rx='13' ry='11'/%3E%3Cellipse cx='14' cy='28' rx='6' ry='8' transform='rotate(-20 14 28)'/%3E%3Cellipse cx='25' cy='17' rx='6' ry='8.5'/%3E%3Cellipse cx='39' cy='17' rx='6' ry='8.5'/%3E%3Cellipse cx='50' cy='28' rx='6' ry='8' transform='rotate(20 50 28)'/%3E%3C/g%3E%3Cg transform='translate(112 100) rotate(16) scale(.5)'%3E%3Cellipse cx='32' cy='42' rx='13' ry='11'/%3E%3Cellipse cx='14' cy='28' rx='6' ry='8' transform='rotate(-20 14 28)'/%3E%3Cellipse cx='25' cy='17' rx='6' ry='8.5'/%3E%3Cellipse cx='39' cy='17' rx='6' ry='8.5'/%3E%3Cellipse cx='50' cy='28' rx='6' ry='8' transform='rotate(20 50 28)'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{margin:0;line-height:1.15;letter-spacing:-.01em}
+/* ---------- brand ---------- */
+.brand{display:flex;align-items:center;gap:12px}
+.brand .logo{width:50px;height:50px;border-radius:16px;background:linear-gradient(145deg,var(--green),#5DB394);
+  display:grid;place-items:center;color:#fff;box-shadow:0 8px 18px -8px rgba(45,114,96,.7);transform:rotate(-6deg)}
+.brand .logo svg{width:30px;height:30px}
+.brand b{font-size:26px;letter-spacing:-.02em}
+.brand b span{color:var(--green)}
+.brand small{display:block;font-size:12px;color:var(--muted);margin-top:-3px;letter-spacing:.04em}
+/* ---------- cards & text ---------- */
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.7);padding:28px;position:relative}
+.card+.card{margin-top:20px}
+.title{font-size:36px;font-weight:800;margin-bottom:6px}
+.lead{color:var(--muted);margin:0 0 20px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--green-d);margin-bottom:8px}
+.eyebrow svg{width:16px;height:16px}
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:inherit;font-weight:800;font-size:19px;
+  padding:16px 28px;border-radius:99px;border:0;cursor:pointer;transition:transform .12s, box-shadow .12s, background .12s;
+  background:#fff;color:var(--ink);box-shadow:inset 0 0 0 2px var(--line)}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn svg{width:22px;height:22px}
+.btn-primary{background:linear-gradient(180deg,#4BA085,var(--green));color:#fff;box-shadow:0 10px 20px -10px rgba(45,114,96,.9)}
+.btn-primary:hover{background:linear-gradient(180deg,#52AA8E,#379B7B)}
+.btn-peach{background:linear-gradient(180deg,#F6AE92,var(--peach));color:#4A2414;box-shadow:0 10px 20px -10px rgba(217,128,95,.9)}
+.btn-ghost{background:transparent;box-shadow:inset 0 0 0 2px #C9D6C8;color:var(--green-d)}
+.btn-ghost:hover{background:#fff}
+.btn-quiet{background:transparent;box-shadow:none;color:var(--muted);font-weight:700;font-size:16px;padding:12px 18px}
+.btn-lg{font-size:22px;padding:22px 34px}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none;box-shadow:inset 0 0 0 2px var(--line);background:#F0F1EA;color:var(--muted)}
+.actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:24px}
+.btn-sun{background:var(--sun-soft);color:#7A5A0E;box-shadow:inset 0 0 0 2px #EBD9A0}
+.btn-sun:hover{background:#F6E5AF}
+.btn-sun svg{width:30px;height:30px}
+.actions .btn-peach svg{width:30px;height:30px}
+/* ---------- notices, progress bars ---------- */
+.notice{display:flex;gap:12px;align-items:center;background:var(--sun-soft);border-radius:18px;padding:12px 16px;font-weight:700;margin-bottom:18px}
+.notice svg{width:22px;height:22px;flex:none;color:var(--sun-d)}
+.bar{height:14px;border-radius:99px;background:#E8ECE2;margin:16px 0 6px;overflow:hidden}
+.bar span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--green),#7CCBA9);transition:width .5s}
+.barlab{font-size:13px;font-weight:700;color:var(--muted)}
+/* ---------- stat tiles ---------- */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tile{border-radius:24px;padding:20px 18px 18px;position:relative;overflow:hidden;min-height:168px;display:flex;flex-direction:column}
+.tile .ic{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background:rgba(255,255,255,.7);margin-bottom:12px}
+.tile .ic svg{width:28px;height:28px}
+.tile .v{font-size:50px;font-weight:900;line-height:1}
+.tile .l{font-weight:800;margin-top:6px}
+.tile .s{font-size:13px;font-weight:600;opacity:.8;margin-top:auto;padding-top:6px}
+.tile::after{content:"";position:absolute;right:-26px;top:-26px;width:90px;height:90px;border-radius:50%;background:rgba(255,255,255,.35)}
+.t-green{background:var(--mint);color:var(--green-d)}
+.t-rose{background:var(--rose-soft);color:#8C3A29}
+.t-sun{background:var(--sun-soft);color:#7A5A0E}
+.t-peach{background:var(--peach-soft);color:#8A4528}
+.tile .ic{color:inherit}
+.tiles.three{grid-template-columns:repeat(3,1fr)}
+.tile .v small{font-size:22px;font-weight:800}
+/* ---------- utilities & motion ---------- */
+.float{animation:float 5s ease-in-out infinite}
+@keyframes float{50%{translate:0 -10px}}
+.dots span{display:inline-block;animation:blink 1.2s infinite}
+.dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,80%,100%{opacity:.2}40%{opacity:1}}
+/* ---------- misc ---------- */
+.center{text-align:center}.center .actions{justify-content:center}
+.gap-top{margin-top:20px}
+.tight{margin:6px 0 0}
+.strong{font-weight:800}
+.inline{display:inline}
+.contents{display:contents}
+:focus-visible{outline:3px solid rgba(63,143,118,.45);outline-offset:2px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:860px){.tiles{grid-template-columns:1fr 1fr}.tiles.three{grid-template-columns:1fr}.title{font-size:28px}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important}}
+/* ---------- form select ---------- */
+select{width:100%;font:inherit;font-weight:700;color:var(--ink);padding:16px 48px 16px 18px;border-radius:18px;border:2px solid var(--line);background:#fff
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%233F8F76' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 18px center;
+  appearance:none;-webkit-appearance:none;cursor:pointer}
+select:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 4px rgba(63,143,118,.18)}
+select:disabled{background-color:#F3F4EE;color:#9AAAA4;cursor:not-allowed}
+/* ---------- skip link ---------- */
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:12px;z-index:100}
+.skip:focus{left:12px}
